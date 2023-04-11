@@ -1,4 +1,5 @@
 import { FriendsBlock, FriendsListItem, Status } from "components/Friends/Friends.styled";
+import PropTypes from "prop-types";
 
 const Friends = ({friends}) => {
 return (
@@ -12,6 +13,18 @@ return (
       ))}  
     </FriendsBlock>
 )
+};
+
+
+const friendShape = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  avatar: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired
+});
+
+Friends.propTypes = {
+  friends: PropTypes.arrayOf(friendShape).isRequired,
 };
 
 export default Friends;

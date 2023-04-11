@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {ProfileItem, ProfileList, ProfileListItem, ProfileImg} from 'components/App/App.styled'
 
 const User = ({avatar, username, tag, location, stats}) => {
@@ -32,5 +33,17 @@ const User = ({avatar, username, tag, location, stats}) => {
     </div>
   );
 }
+
+User.propTypes = {
+  avatar: PropTypes.string,
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  stats: PropTypes.shape({
+    followers: PropTypes.number,
+    views: PropTypes.number,
+    likes: PropTypes.number,
+  }),
+};
 
 export default User;
